@@ -6,9 +6,18 @@
   "module": "./ng-push-notification.es5.js",
   "es2015": "./ng-push-notification.js",
   "typings": "./ng-push-notification.d.ts",
-  "author": "",
+  "author": "Lyubimov Roman",
   "license": "MIT",
-  "repository": {},
+  "repository": "git@github.com:FriOne/ng-yandex-metrika.git",
+  "keywords": [
+    "push",
+    "notification",
+    "notifications",
+    "ng",
+    "angular",
+    "angular2",
+    "angular4"
+  ],
   "engines": {
     "node": ">= 6.9.0",
     "npm": ">= 3.0.0"
