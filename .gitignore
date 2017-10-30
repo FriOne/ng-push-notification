@@ -2,11 +2,7 @@
 
 # compiled output
 /dist
-/dist-demo
-/tmp
 /out-tsc
-/coverage
-/nightly
 
 # dependencies
 /node_modules

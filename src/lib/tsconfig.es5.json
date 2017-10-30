@@ -7,15 +7,14 @@
     "types": []
   },
   "files": [
-    "./index.ts",
-    "./typings.d.ts"
+    "./index.ts"
   ],
   "angularCompilerOptions": {
     "annotateForClosureCompiler": true,
     "strictMetadataEmit": true,
     "skipTemplateCodegen": true,
-    "flatModuleOutFile": "quickstart-lib.js",
-    "flatModuleId": "quickstart-lib",
+    "flatModuleOutFile": "ng-push-notification.js",
+    "flatModuleId": "ng-push-notification",
     "genDir": "../../out-tsc/lib-gen-dir/"
   }
 }

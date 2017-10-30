@@ -14,22 +14,23 @@ const commonjs = require('rollup-plugin-commonjs');
 const libName = require('./package.json').name;
 const rootFolder = path.join(__dirname);
 const compilationFolder = path.join(rootFolder, 'out-tsc');
+const srcFolder = path.join(rootFolder, 'src/lib');
 const distFolder = path.join(rootFolder, 'dist');
+const tempLibFolder = path.join(compilationFolder, 'lib');
 const es5OutputFolder = path.join(compilationFolder, 'lib-es5');
 const es2015OutputFolder = path.join(compilationFolder, 'lib-es2015');
 
 return Promise.resolve()
+  .then(() => _relativeCopy(`**/*`, srcFolder, tempLibFolder)
+    .then(() => console.log('Inlining succeeded.'))
+  )
   // Compile to ES2015.
-  .then(() => ngc({
-      project: './tsconfig.lib.json'
-    })
+  .then(() => ngc({project: `${tempLibFolder}/tsconfig.lib.json`})
     .then(exitCode => exitCode === 0 ? Promise.resolve() : Promise.reject())
     .then(() => console.log('ES2015 compilation succeeded.'))
   )
   // Compile to ES5.
-  .then(() => ngc({
-      project: './tsconfig.es5.json'
-    })
+  .then(() => ngc({project: `${tempLibFolder}/tsconfig.es5.json`})
     .then(exitCode => exitCode === 0 ? Promise.resolve() : Promise.reject())
     .then(() => console.log('ES5 compilation succeeded.'))
   )
@@ -54,12 +55,36 @@ return Promise.resolve()
         // The key here is library name, and the value is the the name of the global variable name
         // the window object.
         // See https://github.com/rollup/rollup/wiki/JavaScript-API#globals for more.
-        '@angular/core': 'ng.core'
+        '@angular/core': 'ng.core',
+        'rxjs':                             'Rx',
+        'rxjs/add/operator/debounceTime': 'Rx.Observable.prototype',
+        'rxjs/add/operator/distinctUntilChanged': 'Rx.Observable.prototype',
+        'rxjs/add/operator/filter': 'Rx.Observable.prototype',
+        'rxjs/add/operator/map': 'Rx.Observable.prototype',
+        'rxjs/add/operator/switchMap': 'Rx.Observable.prototype',
+        'rxjs/add/operator/do': 'Rx.Observable.prototype',
+        'rxjs/Observable':                  'Rx',
+        'rxjs/observable/fromEvent':        'Rx.Observable',
+        'rxjs/observable/merge':            'Rx.Observable',
+        'rxjs/Subject':                     'Rx',
+        'rxjs/Subscription':                'Rx',
       },
       external: [
         // List of dependencies
         // See https://github.com/rollup/rollup/wiki/JavaScript-API#external for more.
-        '@angular/core'
+        '@angular/core',
+        'rxjs',
+        'rxjs/add/observable/merge',
+        'rxjs/add/observable/fromEvent',
+        'rxjs/add/operator/debounceTime',
+        'rxjs/add/operator/distinctUntilChanged',
+        'rxjs/add/operator/filter',
+        'rxjs/add/operator/map',
+        'rxjs/add/operator/switchMap',
+        'rxjs/add/operator/do',
+        'rxjs/Observable',
+        'rxjs/Subject',
+        'rxjs/Subscription',
       ],
       plugins: [
         commonjs({

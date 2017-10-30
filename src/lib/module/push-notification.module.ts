@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 
 import { PushNotificationService } from './push-notification.service';
 import { PushNotificationSettings } from './push-notification.settings';
@@ -6,7 +6,7 @@ import { DEFAULT_NOTIFICATION_SETTINGS } from './push-notification.config';
 
 @NgModule({})
 export class PushNotificationModule {
-  static forRoot(config?: PushNotificationSettings) {
+  static forRoot(config?: PushNotificationSettings): ModuleWithProviders {
     return {
       ngModule: PushNotificationModule,
       providers: [

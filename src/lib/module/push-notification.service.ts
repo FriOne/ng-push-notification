@@ -74,11 +74,11 @@ export class PushNotificationService {
     return notification;
   }
 
-  private attachEventHandlers(notification): void {
+  private attachEventHandlers(notification: Notification): void {
     notification.onshow = () => {
       this.shown$.next(notification);
     };
-    notification.onclick = (event) => {
+    notification.onclick = (event: any) => {
       this.click$.next({event, notification});
     };
     notification.onerror = () => {
