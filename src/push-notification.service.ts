@@ -25,9 +25,7 @@ export class PushNotificationService {
       noscreen: false,
       silent: true,
     }, defaultSettings || {});
-    if (this.defaultSettings.closeDelay !== undefined) {
-      this.defaultCloseDelay = 6000;
-    }
+    this.defaultCloseDelay = this.defaultSettings.closeDelay === undefined ? 6000 : this.defaultSettings.closeDelay;
   }
 
   checkCompatibility() {
