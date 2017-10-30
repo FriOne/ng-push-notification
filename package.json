@@ -1,0 +1,48 @@
+{
+  "name": "ng-push-notification",
+  "version": "1.0.0",
+  "description": "Simple service for push notifications",
+  "main": "./bundles/ng-push-notification.umd.js",
+  "module": "./ng-push-notification.es5.js",
+  "es2015": "./ng-push-notification.js",
+  "typings": "./ng-push-notification.d.ts",
+  "author": "",
+  "license": "MIT",
+  "repository": {},
+  "engines": {
+    "node": ">= 6.9.0",
+    "npm": ">= 3.0.0"
+  },
+  "scripts": {
+    "ng": "ng",
+    "clean": "rimraf out-tsc dist",
+    "start": "ng serve",
+    "prebuild": "npm run clean",
+    "build": "node build.js"
+  },
+  "peerDependencies": {
+    "@angular/core": ">=4.0.0"
+  },
+  "devDependencies": {
+    "@angular/cli": "1.3.0-rc.3",
+    "@angular/common": "^4.2.4",
+    "@angular/compiler": "^4.2.4",
+    "@angular/compiler-cli": "^4.2.4",
+    "@angular/core": "^4.2.4",
+    "@angular/language-service": "^4.2.4",
+    "@types/node": "~6.0.60",
+    "codelyzer": "~3.1.1",
+    "core-js": "^2.4.1",
+    "rimraf": "^2.6.1",
+    "rollup": "^0.42.0",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-sourcemaps": "^0.4.1",
+    "rollup-plugin-uglify": "^2.0.1",
+    "rxjs": "^5.4.2",
+    "ts-node": "~3.2.0",
+    "tslint": "~5.3.2",
+    "typescript": "~2.3.3",
+    "zone.js": "^0.8.14"
+  }
+}
