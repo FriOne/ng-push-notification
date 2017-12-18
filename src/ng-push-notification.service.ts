@@ -1,8 +1,8 @@
 import { Injectable, Injector } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
-import { PushNotificationSettings } from './push-notification.settings';
-import { DEFAULT_NOTIFICATION_SETTINGS } from './push-notification.config';
+import { PushNotificationSettings } from './ng-push-notification.settings';
+import { DEFAULT_NOTIFICATION_SETTINGS } from './ng-push-notification.config';
 
 @Injectable()
 export class PushNotificationService {

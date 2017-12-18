@@ -27,7 +27,7 @@ export class SomeComponent {
   constructor(
     private pushNotification: PushNotificationService,
   ) {}
-  
+
   showPush() {
     this.pushNotification.show(
       'Show me that message!',
@@ -37,7 +37,7 @@ export class SomeComponent {
     // Or simply this:
     this.pushNotification.show('And that too!');
   }
-  
+
   async showAnotherPush() {
     const notification = await this.pushNotification.show('Returns promise with Notification object.');
     setTimeout(() => notification.close(), 1000);
