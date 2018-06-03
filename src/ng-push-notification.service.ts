@@ -1,5 +1,5 @@
 import { Injectable, Injector } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
 
 import { PushNotificationSettings } from './ng-push-notification.settings';
 import { DEFAULT_NOTIFICATION_SETTINGS } from './ng-push-notification.config';
