@@ -1,0 +1,24 @@
+{
+  "name": "ng-push-notification",
+  "version": "2.0.0",
+  "description": "Simple service for push notifications",
+  "keywords": [
+    "push",
+    "notification",
+    "notifications",
+    "ng",
+    "angular"
+  ],
+  "author": "Lyubimov Roman",
+  "license": "MIT",
+  "repository": {
+    "url": "git@github.com:FriOne/ng-push-notification.git"
+  },
+  "peerDependencies": {
+    "@angular/common": "^13.1.0",
+    "@angular/core": "^13.1.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
+}
